@@ -1,8 +1,47 @@
 [gd_scene format=3 uid="uid://bpj3iq5k8uldi"]
 
-[ext_resource type="PackedScene" uid="uid://deavle46ycf7w" path="res://player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://o8obgxx3x55n" path="res://scenes/game.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://deavle46ycf7w" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://bhupmhisx5w78" path="res://parallax_background.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://es3ctsx1qr10" path="res://scenes/pipes.tscn" id="3_lnu2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(4744, 20)
 
 [node name="Game" type="Node2D" unique_id=1678829833]
+script = ExtResource("1_lbhrr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=941640111]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=315483180]
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="ParallaxBackground" parent="." unique_id=986183492 instance=ExtResource("1_yqjtg")]
 
 [node name="Player" parent="." unique_id=295671954 instance=ExtResource("1_uwrxv")]
-position = Vector2(129, -34)
+
+[node name="Top Boundary" type="StaticBody2D" parent="." unique_id=1377522805]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Boundary" unique_id=347706071]
+position = Vector2(-15, -10)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="Bottom Boundary" type="StaticBody2D" parent="." unique_id=728673349]
+position = Vector2(0, 316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Boundary" unique_id=732246378]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="Timer" type="Timer" parent="." unique_id=1123094138]
+wait_time = 2.0
+autostart = true
+
+[node name="Pipes" parent="." unique_id=613442734 instance=ExtResource("3_lnu2h")]
+position = Vector2(705, 10)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="point_earned" from="Pipes" to="." method="_on_pipes_point_earned"]
