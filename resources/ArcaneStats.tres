@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ArcaneStats" format=3 uid="uid://dwmw406xf67ss"]
+
+[ext_resource type="Script" uid="uid://ftla54qqqc8g" path="res://scripts/ArcaneStats.gd" id="1_eu4y8"]
+
+[resource]
+script = ExtResource("1_eu4y8")
+metadata/_custom_type_script = "uid://ftla54qqqc8g"
