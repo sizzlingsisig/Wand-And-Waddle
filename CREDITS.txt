@@ -19,18 +19,18 @@ Assets: 24 unique food item sprites
         (toast variations, croissants, stews,
          doughnuts, cakes, and more)
 Path:   assets/Pixel Art Food Pack/
-Author: Craftpix
-Source: https://craftpix.net/freebies/
-License: Craftpix Free License
-         https://craftpix.net/file-licenses/
+Author: karsiori
+Source: https://karsiori.itch.io/free-pixel-art-food-pack
+License: CC0 (Creative Commons Zero)
+         Free for commercial and non-commercial use.
 
 =======================================================
 CLOUD / PARALLAX BACKGROUNDS
 =======================================================
 Assets: 8 cloud layer sets (Clouds 1-8)
 Path:   assets/Clouds/
-Author: Craftpix
-Source: https://craftpix.net/freebies/
+Author: Free Game Assets
+Source: https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
 License: Craftpix Free License
          https://craftpix.net/file-licenses/
 
