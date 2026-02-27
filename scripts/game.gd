@@ -3,7 +3,7 @@ extends Node2D
 const POINT_SFX = preload("res://assets/flappy-bird-assets-master/audio/point.ogg")
 const HIT_SFX = preload("res://assets/flappy-bird-assets-master/audio/hit.ogg")
 const DIE_SFX = preload("res://assets/flappy-bird-assets-master/audio/die.ogg")
-const BGM_SFX = preload("res://assets/flappy-bird-assets-master/audio/swoosh.ogg")
+const BGM_SFX = preload("res://MXZI, Deno - FAVELA [NCS Release].ogg")
 
 var pipe_scene = preload("res://scenes/pipes.tscn")
 var collectible_roll_scene = preload("res://scenes/collectible_roll.tscn")
@@ -30,7 +30,7 @@ var hit_audio: AudioStreamPlayer
 var die_audio: AudioStreamPlayer
 var bgm_audio: AudioStreamPlayer
 
-func _ready():
+func _ready() -> void:
 	randomize() 
 	_setup_audio()
 	
@@ -44,13 +44,13 @@ func _ready():
 	if bgm_audio != null:
 		bgm_audio.play()
 
-func _on_game_started():
+func _on_game_started() -> void:
 	timer.start()
 
-func _on_player_died():
+func _on_player_died() -> void:
 	_handle_death()
 
-func _on_wizard_died():
+func _on_wizard_died() -> void:
 	_handle_death()
 
 func _on_phase_transitioned(new_phase: String) -> void:
@@ -71,7 +71,7 @@ func _update_debug_label() -> void:
 		return
 	debug_label.text = "Phase: %s | Charge: %.1f | State: %s" % [current_phase, current_charge, current_charge_state]
 
-func _handle_death():
+func _handle_death() -> void:
 	if game_over_handled:
 		return
 	game_over_handled = true
@@ -88,7 +88,7 @@ func _handle_death():
 	get_tree().reload_current_scene()
 
 # Pipes and collectibles are timer-driven.
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	var new_pipe = pipe_scene.instantiate()
 	new_pipe.position = Vector2(600, randf_range(-80, 80))
 	new_pipe.point_earned.connect(_on_pipe_point_earned)
@@ -112,7 +112,7 @@ func _spawn_collectible_between_pipes(pipe_position: Vector2) -> void:
 		roll.setup(charge_manager)
 	add_child(roll)
 	
-func _on_pipe_point_earned():
+func _on_pipe_point_earned() -> void:
 	score += 1
 	score_label.text = str(score)
 	GameEvents.emit_score_changed(score)

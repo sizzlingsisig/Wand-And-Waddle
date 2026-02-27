@@ -31,7 +31,7 @@ func _ready() -> void:
 	GameEvents.phase_transitioned.connect(_on_phase_transitioned)
 	GameEvents.charge_changed.connect(_on_charge_changed)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if is_dead:
 		velocity.y += gravity * delta
 		animated_sprite.play("explode")
@@ -56,7 +56,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func die():
+func die() -> void:
 	if not is_dead:
 		print("The Goose has crashed!") 
 		is_dead = true
