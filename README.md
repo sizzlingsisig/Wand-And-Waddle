@@ -18,11 +18,8 @@ Current default controls in this project:
 - **Flap / Jump**: `Space`
 
 ## Known Issues / Limitations
-- Game-over currently reloads the scene after a short delay (no dedicated game-over menu/UI flow yet).
-- Debug text is still shown in-game (phase + charge info), which is useful for tuning but not final UX.
 - Arcane systems are still in active tuning (decay rates, thresholds, and profile feel may change).
-- High score storage variable exists, but full persistence and game-over presentation are still incomplete.
-- Background music is currently set to `MXZI, Deno - FAVELA [NCS Release].ogg`; verify redistribution rights before any public release.
+- High score storage variable exists, but full persistence are still incomplete.
 
 ## Asset Credits and Licenses
 
@@ -61,4 +58,4 @@ Current default controls in this project:
 ### Background Music
 - File: `MXZI, Deno - FAVELA [NCS Release].ogg`
 - Label: NCS (NoCopyrightSounds)
-- Note: NCS tracks require attribution in public distributions. Verify terms at https://ncs.io/usage-policy before any public release.
+- License: Creative Commons license
