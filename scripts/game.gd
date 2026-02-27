@@ -1,5 +1,10 @@
 extends Node2D
 
+const POINT_SFX = preload("res://assets/flappy-bird-assets-master/audio/point.ogg")
+const HIT_SFX = preload("res://assets/flappy-bird-assets-master/audio/hit.ogg")
+const DIE_SFX = preload("res://assets/flappy-bird-assets-master/audio/die.ogg")
+const BGM_SFX = preload("res://assets/flappy-bird-assets-master/audio/swoosh.ogg")
+
 var pipe_scene = preload("res://scenes/pipes.tscn")
 var collectible_roll_scene = preload("res://scenes/collectible_roll.tscn")
 var score: int = 0
@@ -20,8 +25,14 @@ var current_charge_state: String = "Depleted"
 @onready var player = $Player
 @onready var charge_manager = $ArcaneChargeManager
 
+var point_audio: AudioStreamPlayer
+var hit_audio: AudioStreamPlayer
+var die_audio: AudioStreamPlayer
+var bgm_audio: AudioStreamPlayer
+
 func _ready():
 	randomize() 
+	_setup_audio()
 	
 	player.game_started.connect(_on_game_started)
 	player.player_died.connect(_on_player_died)
@@ -30,6 +41,8 @@ func _ready():
 	GameEvents.charge_changed.connect(_on_charge_changed)
 	GameEvents.emit_score_changed(score)
 	_update_debug_label()
+	if bgm_audio != null:
+		bgm_audio.play()
 
 func _on_game_started():
 	timer.start()
@@ -62,6 +75,11 @@ func _handle_death():
 	if game_over_handled:
 		return
 	game_over_handled = true
+
+	if hit_audio != null:
+		hit_audio.play()
+	if die_audio != null:
+		die_audio.play()
 
 	timer.stop()
 	
@@ -98,3 +116,24 @@ func _on_pipe_point_earned():
 	score += 1
 	score_label.text = str(score)
 	GameEvents.emit_score_changed(score)
+	if point_audio != null:
+		point_audio.play()
+
+func _setup_audio() -> void:
+	point_audio = _create_audio_player(POINT_SFX, -5.0)
+	hit_audio = _create_audio_player(HIT_SFX, -3.0)
+	die_audio = _create_audio_player(DIE_SFX, -2.0)
+	bgm_audio = _create_audio_player(BGM_SFX, -18.0)
+	if bgm_audio != null:
+		bgm_audio.finished.connect(_on_bgm_finished)
+
+func _create_audio_player(stream: AudioStream, volume_db: float) -> AudioStreamPlayer:
+	var player_node := AudioStreamPlayer.new()
+	player_node.stream = stream
+	player_node.volume_db = volume_db
+	add_child(player_node)
+	return player_node
+
+func _on_bgm_finished() -> void:
+	if bgm_audio != null and not game_over_handled:
+		bgm_audio.play()

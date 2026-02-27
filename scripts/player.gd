@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const WING_SFX = preload("res://assets/flappy-bird-assets-master/audio/wing.ogg")
+
 signal game_started
 signal player_died
 
@@ -18,7 +20,14 @@ var mana_burn_swap_unlock_time_ms: int = 0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var charge_manager: Node = get_parent().get_node_or_null("ArcaneChargeManager")
 
+var wing_audio: AudioStreamPlayer
+
 func _ready() -> void:
+	wing_audio = AudioStreamPlayer.new()
+	wing_audio.stream = WING_SFX
+	wing_audio.volume_db = -6.0
+	add_child(wing_audio)
+
 	GameEvents.phase_transitioned.connect(_on_phase_transitioned)
 	GameEvents.charge_changed.connect(_on_charge_changed)
 
@@ -35,6 +44,7 @@ func _physics_process(delta):
 			is_started = true
 			velocity.y = flap_power
 			animated_sprite.play("dash_up")
+			_play_wing_sfx()
 			GameEvents.emit_run_started()
 			game_started.emit()
 		
@@ -74,6 +84,7 @@ func _apply_grounded_controls() -> void:
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = flap_power
 		animated_sprite.play("jump")
+		_play_wing_sfx()
 
 func _apply_flying_controls(profile: Resource) -> void:
 	if not Input.is_action_just_pressed("flap"):
@@ -86,6 +97,7 @@ func _apply_flying_controls(profile: Resource) -> void:
 		velocity.y = flap_power
 
 	animated_sprite.play("dash_up")
+	_play_wing_sfx()
 
 func _apply_animation() -> void:
 	if animated_sprite.animation == "explode":
@@ -183,3 +195,8 @@ func _get_profile_float(profile: Resource, key: String, fallback: float) -> floa
 	if value == null:
 		return fallback
 	return float(value)
+
+func _play_wing_sfx() -> void:
+	if wing_audio == null:
+		return
+	wing_audio.play()
