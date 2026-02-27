@@ -15,4 +15,6 @@ func _on_score_area_body_entered(body):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		get_tree().reload_current_scene()
+		# Instead of reloading the scene, we trigger the function we just made
+		if body.has_method("die"):
+			body.die()

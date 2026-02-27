@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://elqvlsb2rcuu" path="res://assets/Wizardgooseassets/Dashup (64x64)-sheet.png" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://bo8c0tptcv3qv" path="res://assets/Wizardgooseassets/Fall (32x32).png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://drpod2mkrjxy6" path="res://assets/Wizardgooseassets/Idle (64x64)-sheet.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bspr4g7pnf1ep" path="res://assets/Wizardgooseassets/EggBlast (64x64).png" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://dnshwlgx1vjp8" path="res://assets/Wizardgooseassets/Jump (32x32).png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://b3bcy4j8riglx" path="res://assets/Wizardgooseassets/Turdblast.png" id="5_sweqy"]
 [ext_resource type="Texture2D" uid="uid://80kd67lljefi" path="res://assets/Wizardgooseassets/Lay(64x64).png" id="6_dw050"]
@@ -31,6 +32,46 @@ region = Rect2(192, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtqh7"]
 atlas = ExtResource("2_1jxqw")
 region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_smehm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_smehm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_smehm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("3_smehm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("3_smehm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("3_smehm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("3_smehm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("3_smehm")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("3_smehm")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("3_smehm")
+region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
 atlas = ExtResource("3_2hs0m")
@@ -151,6 +192,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_sweqy")
 }],
 "loop": true,
@@ -262,9 +338,10 @@ metadata/_edit_group_ = true
 position = Vector2(100, 258)
 scale = Vector2(1.3, 1.164)
 sprite_frames = SubResource("SpriteFrames_pylmc")
-animation = &"dash_up"
+animation = &"explode"
 autoplay = "idle"
-frame_progress = 0.87535
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1442449119]
 position = Vector2(100, 262)

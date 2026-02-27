@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Wand And Waddle"
+run/main_scene="uid://bpj3iq5k8uldi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://dh6nyxfdtb0sj"
 
 [display]
 
