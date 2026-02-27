@@ -17,7 +17,7 @@ var current_phase: String = PHASE_GROUNDED
 var current_charge_state: String = "Depleted"
 var mana_burn_swap_unlock_time_ms: int = 0
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var charge_manager: Node = get_parent().get_node_or_null("ArcaneChargeManager")
 
 var wing_audio: AudioStreamPlayer

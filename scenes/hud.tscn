@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://hud_scene_001"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_panel"]
+bg_color = Color(0.08, 0.04, 0.18, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.35, 0.85, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.4, 0.2, 0.8, 0.3)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gameover_panel"]
+bg_color = Color(0.06, 0.02, 0.14, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.65, 0.2, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.85, 0.65, 0.2, 0.2)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_charge_bg"]
+bg_color = Color(0.12, 0.06, 0.22, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.25, 0.75, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_charge_fill"]
+bg_color = Color(0.45, 0.2, 0.85, 0.9)
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.14, 0.06, 0.28, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.65, 0.2, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.22, 0.1, 0.4, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.0, 0.8, 0.3, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.3, 0.14, 0.55, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.0, 0.9, 0.5, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="HUDPanel" type="Panel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 328.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_panel")
+
+[node name="ScoreTitle" type="Label" parent="HUDPanel"]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 82.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.75, 0.55, 1.0, 0.8)
+theme_override_colors/font_shadow_color = Color(0.4, 0.2, 0.8, 0.4)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "SCORE"
+
+[node name="ScoreLabel" type="Label" parent="HUDPanel"]
+offset_left = 90.0
+offset_top = 2.0
+offset_right = 190.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1.0, 0.85, 0.3, 1.0)
+theme_override_colors/font_shadow_color = Color(0.85, 0.6, 0.0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="ChargeTitle" type="Label" parent="HUDPanel"]
+offset_left = 10.0
+offset_top = 36.0
+offset_right = 130.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.65, 0.45, 1.0, 0.8)
+theme_override_colors/font_shadow_color = Color(0.3, 0.15, 0.7, 0.4)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "ARCANE POWER"
+
+[node name="ChargeBar" type="ProgressBar" parent="HUDPanel"]
+offset_left = 10.0
+offset_top = 58.0
+offset_right = 244.0
+offset_bottom = 78.0
+theme_override_styles/background = SubResource("StyleBoxFlat_charge_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_charge_fill")
+max_value = 100.0
+value = 0.0
+show_percentage = false
+
+[node name="ChargeValueLabel" type="Label" parent="HUDPanel"]
+offset_left = 250.0
+offset_top = 56.0
+offset_right = 310.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.8, 0.7, 1.0, 0.9)
+theme_override_colors/font_shadow_color = Color(0.4, 0.2, 0.8, 0.35)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "0%"
+horizontal_alignment = 2
+
+[node name="ChargeStateLabel" type="Label" parent="HUDPanel"]
+offset_left = 10.0
+offset_top = 82.0
+offset_right = 310.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.75, 0.55, 1.0, 0.85)
+theme_override_colors/font_shadow_color = Color(0.35, 0.15, 0.7, 0.4)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 13
+text = "Depleted"
+
+[node name="StartOverlay" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dim" type="ColorRect" parent="StartOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.02, 0.1, 0.45)
+
+[node name="TitleLabel" type="Label" parent="StartOverlay"]
+offset_left = 84.0
+offset_top = 80.0
+offset_right = 492.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(1.0, 0.85, 0.3, 1.0)
+theme_override_colors/font_shadow_color = Color(0.85, 0.55, 0.0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "Wand & Waddle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="StartOverlay"]
+offset_left = 84.0
+offset_top = 140.0
+offset_right = 492.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0.8, 0.7, 1.0, 0.9)
+theme_override_colors/font_shadow_color = Color(0.4, 0.2, 0.8, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 18
+text = "Press Space to Cast Off!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="GameOverMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.02, 0.1, 0.55)
+
+[node name="Panel" type="Panel" parent="GameOverMenu"]
+offset_left = 148.0
+offset_top = 60.0
+offset_right = 428.0
+offset_bottom = 268.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gameover_panel")
+
+[node name="TitleLabel" type="Label" parent="GameOverMenu/Panel"]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1.0, 0.42, 0.42, 1.0)
+theme_override_colors/font_shadow_color = Color(0.8, 0.15, 0.15, 0.5)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 26
+text = "Spell Fizzled!"
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="GameOverMenu/Panel"]
+offset_left = 20.0
+offset_top = 70.0
+offset_right = 260.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(1.0, 0.85, 0.3, 1.0)
+theme_override_colors/font_shadow_color = Color(0.85, 0.6, 0.0, 0.45)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 20
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="GameOverMenu/Panel"]
+offset_left = 20.0
+offset_top = 110.0
+offset_right = 260.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.75, 0.55, 1.0, 0.85)
+theme_override_colors/font_shadow_color = Color(0.35, 0.15, 0.7, 0.35)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "Best: 0"
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="GameOverMenu/Panel"]
+offset_left = 70.0
+offset_top = 150.0
+offset_right = 210.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(1.0, 0.85, 0.3, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 0.95, 0.6, 1.0)
+theme_override_colors/font_pressed_color = Color(1.0, 1.0, 0.8, 1.0)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "Cast Again"
+
+[connection signal="pressed" from="GameOverMenu/Panel/PlayAgainButton" to="." method="_on_play_again_pressed"]
