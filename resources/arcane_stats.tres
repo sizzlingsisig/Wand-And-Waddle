@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ArcaneStats" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://resources/arcane_stats.gd" id="1_arcane_stats_script"]
+[ext_resource type="Resource" path="res://resources/charge_profile_depleted.tres" id="2_depleted"]
+[ext_resource type="Resource" path="res://resources/charge_profile_charging.tres" id="3_charging"]
+[ext_resource type="Resource" path="res://resources/charge_profile_sweet_spot.tres" id="4_sweet_spot"]
+[ext_resource type="Resource" path="res://resources/charge_profile_overcharged.tres" id="5_overcharged"]
+[ext_resource type="Resource" path="res://resources/charge_profile_mana_burn.tres" id="6_mana_burn"]
+
+[resource]
+script = ExtResource("1_arcane_stats_script")
+base_gravity = 1200.0
+collectible_charge_gain = 12.0
+vent_charge_gain_per_second = 30.0
+water_bucket_charge_loss = 20.0
+water_bucket_downward_force = 500.0
+orb_cost = 10.0
+burst_cost = 100.0
+flight_transition_charge = 50.0
+mana_burn_warning_seconds = 0.5
+state_profiles = Array[ExtResource("2_depleted"), ExtResource("3_charging"), ExtResource("4_sweet_spot"), ExtResource("5_overcharged"), ExtResource("6_mana_burn")]

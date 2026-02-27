@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ChargeStateProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/charge_state_profile.gd" id="1_profile_script"]
+
+[resource]
+script = ExtResource("1_profile_script")
+state_name = "Mana Burn"
+min_charge = 86.0
+max_charge = 100.0
+mass_multiplier = 0.5
+input_lag_seconds = 0.0
+control_drift_strength = 0.1
+swapped_inputs = true
+passive_decay_rate = 10.0
+visual_intensity = 1.6
