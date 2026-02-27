@@ -32,15 +32,16 @@ Current default controls in this project:
 
 ### Pixel Art Food Pack (Collectibles)
 - Source: `assets/Pixel Art Food Pack/`
-- Author: Craftpix
-- Source page: https://craftpix.net/freebies/
-- License: Craftpix Free License — https://craftpix.net/file-licenses/
+- Author: karsiori
+- Source page: https://karsiori.itch.io/free-pixel-art-food-pack
+- License info:
+CC0, you can use this asset pack however you want, in your commercial or non-commercial projects. Though it is not required, we would be very grateful if you could give us credit!
 - Contains: 24 unique food item sprites (toast variations, croissants, stews, doughnuts, and more)
 
 ### Cloud / Parallax Backgrounds
 - Source: `assets/Clouds/` (8 cloud layer sets)
-- Author: Craftpix
-- Source page: https://craftpix.net/freebies/
+- Author: Free Game Assets
+- Source page: https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
 - License: Craftpix Free License — https://craftpix.net/file-licenses/
 
 ### Pipes / Flappy-style Environment Pack
