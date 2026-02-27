@@ -4,4 +4,3 @@
 
 [node name="ArcaneChargeManager" type="Node" unique_id=908710170]
 script = ExtResource("1_charge_manager_script")
-starting_charge = 90.0

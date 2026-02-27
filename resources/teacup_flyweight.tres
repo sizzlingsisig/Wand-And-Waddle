@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TeacupFlyweight" format=3 uid="uid://cs171rv8fxyu3"]
+
+[ext_resource type="Script" path="res://resources/teacup_flyweight.gd" id="1_teacup_flyweight_script"]
+
+[resource]
+script = ExtResource("1_teacup_flyweight_script")

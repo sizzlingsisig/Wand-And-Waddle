@@ -71,7 +71,7 @@ func _apply_grounded_controls() -> void:
 		animated_sprite.play("lay")
 		return
 
-	if Input.is_action_just_pressed("flap") and is_on_floor():
+	if Input.is_action_just_pressed("flap"):
 		velocity.y = flap_power
 		animated_sprite.play("jump")
 

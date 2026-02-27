@@ -1,16 +1,24 @@
 extends Node2D
 
 var pipe_scene = preload("res://scenes/pipes.tscn")
+var collectible_roll_scene = preload("res://scenes/collectible_roll.tscn")
 var score: int = 0
 var game_over_handled: bool = false
 var current_phase: String = "GROUNDED"
 var current_charge: float = 0.0
 var current_charge_state: String = "Depleted"
 
+@export var collectible_gap_center_offset: float = 144.0
+@export var collectible_x_offset_min: float = -18.0
+@export var collectible_x_offset_max: float = 24.0
+@export var collectible_y_offset_min: float = -26.0
+@export var collectible_y_offset_max: float = 26.0
+
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var debug_label = $CanvasLayer/DebugLabel
 @onready var timer = $Timer
 @onready var player = $Player
+@onready var charge_manager = $ArcaneChargeManager
 
 func _ready():
 	randomize() 
@@ -61,12 +69,30 @@ func _handle_death():
 	
 	get_tree().reload_current_scene()
 
-# Pipe Spawning and Scoring Logic
+# Pipes and collectibles are timer-driven.
 func _on_timer_timeout():
 	var new_pipe = pipe_scene.instantiate()
 	new_pipe.position = Vector2(600, randf_range(-80, 80))
 	new_pipe.point_earned.connect(_on_pipe_point_earned)
 	add_child(new_pipe)
+
+	_spawn_collectible_between_pipes(new_pipe.position)
+
+func _spawn_collectible_between_pipes(pipe_position: Vector2) -> void:
+	var roll = collectible_roll_scene.instantiate()
+	if roll == null:
+		return
+
+	var random_x_offset := randf_range(collectible_x_offset_min, collectible_x_offset_max)
+	var random_y_offset := randf_range(collectible_y_offset_min, collectible_y_offset_max)
+
+	roll.position = Vector2(
+		pipe_position.x + random_x_offset,
+		pipe_position.y + collectible_gap_center_offset + random_y_offset
+	)
+	if roll.has_method("setup"):
+		roll.setup(charge_manager)
+	add_child(roll)
 	
 func _on_pipe_point_earned():
 	score += 1

@@ -4,21 +4,18 @@ class_name ArcaneChargeManager
 @export var stats: Resource
 @export_range(0.0, 100.0, 0.1) var starting_charge: float = 0.0
 @export var passive_decay_enabled: bool = true
+@export_range(0.0, 1.0, 0.01) var decay_speed_multiplier: float = 0.5
 
 var current_charge: float = 0.0
 var current_state_name: String = "Depleted"
-var has_run_started: bool = false
 
 func _ready() -> void:
 	if stats == null:
 		stats = load("res://resources/arcane_stats.tres")
-	GameEvents.run_started.connect(_on_run_started)
 	set_charge(starting_charge)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not passive_decay_enabled:
-		return
-	if not has_run_started:
 		return
 	if current_charge <= 0.0:
 		return
@@ -27,11 +24,9 @@ func _process(delta: float) -> void:
 	var decay_rate := 5.0
 	if profile != null:
 		decay_rate = profile.passive_decay_rate
+	decay_rate *= decay_speed_multiplier
 
 	drain_charge(decay_rate * delta)
-
-func _on_run_started() -> void:
-	has_run_started = true
 
 func add_charge(amount: float) -> void:
 	if amount <= 0.0:
