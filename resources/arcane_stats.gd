@@ -14,9 +14,9 @@ class_name ArcaneStats
 @export_range(0.0, 100.0, 0.1) var flight_transition_charge: float = 50.0
 @export var mana_burn_warning_seconds: float = 0.5
 
-@export var state_profiles: Array[ChargeStateProfile] = []
+@export var state_profiles: Array[Resource] = []
 
-func get_profile_for_charge(charge: float) -> ChargeStateProfile:
+func get_profile_for_charge(charge: float) -> Resource:
 	for profile in state_profiles:
 		if profile != null and profile.contains_charge(charge):
 			return profile

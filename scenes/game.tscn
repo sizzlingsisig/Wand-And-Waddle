@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://o8obgxx3x55n" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://deavle46ycf7w" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhupmhisx5w78" path="res://parallax_background.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" path="res://scenes/arcane_charge_manager.tscn" id="2_kv0xq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(4744, 20)
@@ -22,6 +23,8 @@ text = "0"
 
 [node name="Player" parent="." unique_id=295671954 instance=ExtResource("1_uwrxv")]
 wall_min_slide_angle = 0.0
+
+[node name="ArcaneChargeManager" parent="." unique_id=413765522 instance=ExtResource("2_kv0xq")]
 
 [node name="Top Boundary" type="StaticBody2D" parent="." unique_id=1377522805]
 

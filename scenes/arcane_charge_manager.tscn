@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lv2dagc6rb76"]
+
+[ext_resource type="Script" uid="uid://ds8ya7tfpwduq" path="res://scripts/arcane_charge_manager.gd" id="1_charge_manager_script"]
+
+[node name="ArcaneChargeManager" type="Node" unique_id=908710170]
+script = ExtResource("1_charge_manager_script")
+starting_charge = 90.5

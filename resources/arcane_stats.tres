@@ -18,4 +18,4 @@ orb_cost = 10.0
 burst_cost = 100.0
 flight_transition_charge = 50.0
 mana_burn_warning_seconds = 0.5
-state_profiles = Array[ExtResource("2_depleted"), ExtResource("3_charging"), ExtResource("4_sweet_spot"), ExtResource("5_overcharged"), ExtResource("6_mana_burn")]
+state_profiles = [ExtResource("2_depleted"), ExtResource("3_charging"), ExtResource("4_sweet_spot"), ExtResource("5_overcharged"), ExtResource("6_mana_burn")]
