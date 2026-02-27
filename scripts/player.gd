@@ -17,6 +17,7 @@ func _physics_process(delta):
 			is_started = true
 			velocity.y = flap_power
 			animated_sprite.play("dash_up")
+			GameEvents.emit_run_started()
 			game_started.emit()
 		
 		return 
