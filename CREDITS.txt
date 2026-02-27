@@ -1,0 +1,68 @@
+Wand and Waddle - Asset Credits
+
+=======================================================
+WIZARD GOOSE CHARACTER SPRITES
+=======================================================
+Assets: Idle, Run, Jump, Fall, Dash, Dashup, Lay,
+        EggBlast, EggBomb, Turdblast, Turdcloud,
+        Turdfly, Turdpipe animations (64x64 / 32x32)
+Path:   assets/Wizardgooseassets/
+Author: Axolotl Jim / Craftpix
+Source: https://axolotl-jim.itch.io/wizard-goose-sp
+License: Craftpix Free License
+         https://craftpix.net/file-licenses/
+
+=======================================================
+PIXEL ART FOOD PACK (Collectibles)
+=======================================================
+Assets: 24 unique food item sprites
+        (toast variations, croissants, stews,
+         doughnuts, cakes, and more)
+Path:   assets/Pixel Art Food Pack/
+Author: Craftpix
+Source: https://craftpix.net/freebies/
+License: Craftpix Free License
+         https://craftpix.net/file-licenses/
+
+=======================================================
+CLOUD / PARALLAX BACKGROUNDS
+=======================================================
+Assets: 8 cloud layer sets (Clouds 1-8)
+Path:   assets/Clouds/
+Author: Craftpix
+Source: https://craftpix.net/freebies/
+License: Craftpix Free License
+         https://craftpix.net/file-licenses/
+
+=======================================================
+PIPES / FLAPPY-STYLE ENVIRONMENT PACK
+=======================================================
+Assets: Pipe sprites, backgrounds, tilesets
+        (14 player color variants, 10 backgrounds,
+         40 pipe variants, 40 tileset variants)
+Path:   assets/pipes/
+Credits: Inspired by Flappy Bird (Dong Nguyen)
+         Sprites by Megacrash
+         Color palette: Endesga64
+License: Creative Commons Zero v1.0 Universal (CC0)
+
+=======================================================
+FLAPPY BIRD ASSETS (Audio SFX + Sprites)
+=======================================================
+Assets: wing.ogg, point.ogg, hit.ogg, die.ogg
+        + bird/pipe/UI sprites
+Path:   assets/flappy-bird-assets-master/
+Author: Samuel Custodio
+Source: https://github.com/samuelcust/flappy-bird-assets
+License: MIT License
+         Copyright (c) 2019 Samuel Custodio
+
+=======================================================
+BACKGROUND MUSIC
+=======================================================
+Track:  MXZI, Deno - FAVELA [NCS Release]
+File:   MXZI, Deno - FAVELA [NCS Release].ogg
+Label:  NCS (NoCopyrightSounds)
+Note:   NCS tracks require attribution in public
+        distributions. See https://ncs.io/usage-policy
+        for full terms before releasing publicly.
