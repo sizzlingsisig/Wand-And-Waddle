@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ChargeStateProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/charge_state_profile.gd" id="1_profile_script"]
+
+[resource]
+script = ExtResource("1_profile_script")
+state_name = "Charging"
+min_charge = 16.0
+max_charge = 40.0
+mass_multiplier = 1.5
+input_lag_seconds = 0.08
+control_drift_strength = 0.0
+swapped_inputs = false
+passive_decay_rate = 4.0
+visual_intensity = 0.55
